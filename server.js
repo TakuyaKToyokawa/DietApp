@@ -14,31 +14,27 @@ app.get("/api/foods/", (req, res) => {
   });
 });
 
-//GET request for diary array
-app.get("/api/diary/", (req, res) => {
-  const diary = database.allDiary();
+//GET request for meals array
+app.get("/api/meals/", (req, res) => {
+  const meals = database.allDiary();
   res.send({
-    diary,
+    meals,
   });
 });
 
-app.post("/api/foods", (req, res) => {
-  const food = database.addFood(req.body);
-  res.send(food);
+//POST new food to meals array
+app.post("/api/meals", (req, res) => {
+  const meals = database.addFood(req.body);
+  res.send(meals);
 });
 
-app.delete("/api/foods/:category", (req, res) => {
-  const foodId = parseInt(req.params.id);
-  const result = database.deleteFood(foodId);
-  res.send(result);
-});
+// DELETE food from meals array
+app.delete('/api/meals/:id', (req, res) => {
+  const mealId = parseInt(req.params.id)
+  const result = database.deleteFood(mealId)
+  res.send(result) 
+})
 
-app.patch("/api/foods/:category", (req, res) => {
-  const foodId = parseInt(req.params.id);
-  const data = req.body;
-  const result = database.updateFood(foodId, data);
-  res.send(result);
-});
 
 // // GET
 // app.get("/api/foods", (req, res) => {

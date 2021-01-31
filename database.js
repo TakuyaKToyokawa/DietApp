@@ -50,13 +50,15 @@ let foods = [
   },
 ];
 
-let diary = [
+let meals = [
   {
+    id: 1,
     category: "sweet",
     name: "Pancake",
     calories: 500,
     carbs: 223,
     protein: 200,
+    meal: "breakfast",
   },
 ];
 
@@ -66,40 +68,34 @@ function allFoods() {
 }
 exports.allFoods = allFoods;
 
-// Return all diary items from all categories of foods
+// Return all meal items from all categories of foods
 function allDiary() {
-  return diary;
+  return meals;
 }
 exports.allDiary = allDiary;
 
-// Add food to array and push it to diary list object
-function addFood(food) {
-  diary.category = foods.category;
-  diary.push(food);
-  return food;
-}
-
-// Delete food from diary list
-function updateFood(foodId, data) {
-  if (data.completed !== undefined) {
-    const food = foods.find((food) => food.id === foodId);
-    food.completed = data.completed;
-  }
-  return { id: foodId, ...data };
+// Add food to array and push it to meal list object
+function addFood(meal) {
+  meal.id = meals.length + 1;
+  meal.category = meals.category;
+  meals.push(meal);
+  return meal;
 }
 
 exports.addFood = addFood;
 
-//**Extra functions that may come in handy later (Delete and Update foods inside database) */
+// Delete food from meal list
+function deleteFood(mealsId) {
+  const mealsIndex = meals.findIndex((meals) => meals.id === mealsId);
+  if (mealsIndex !== -1) {
+    meals.splice(mealsIndex, 1);
+  }
+  return { id: mealsId };
+}
 
-// Delete food from database
-// function deleteFood(foodId) {
-//   const foodIndex = foods.findIndex((food) => food.id === foodId);
-//   if (foodIndex !== -1) {
-//     foods.splice(foodIndex, 1);
-//   }
-//   return { id: foodId };
-// }
+exports.deleteFood = deleteFood;
+
+//**Extra functions that may come in handy later (Delete and Update foods inside database) */
 
 // Create food and push it food object as a new entry
 // function createFood(food) {
