@@ -4,25 +4,28 @@ let foods = [
   {
     category: "dairy",
     name: "Milk",
-    calories: 500,
-    carbs: 223,
+    calories: 100,
+    carbs: 123,
     protein: 200,
+    fat: 10
   },
 
   {
     category: "fruit",
     name: "Strawberry",
-    calories: 500,
+    calories: 400,
     carbs: 223,
     protein: 200,
+    fat: 10
   },
 
   {
     category: "meat",
     name: "Egg",
-    calories: 500,
-    carbs: 223,
+    calories: 100,
+    carbs: 123,
     protein: 200,
+    fat: 10
   },
 
   {
@@ -31,6 +34,7 @@ let foods = [
     calories: 500,
     carbs: 223,
     protein: 200,
+    fat: 10
   },
 
   {
@@ -39,6 +43,7 @@ let foods = [
     calories: 500,
     carbs: 223,
     protein: 200,
+    fat: 10
   },
 
   {
@@ -47,6 +52,7 @@ let foods = [
     calories: 500,
     carbs: 223,
     protein: 200,
+    fat: 10
   },
 ];
 
@@ -58,6 +64,7 @@ let meals = [
     calories: 500,
     carbs: 223,
     protein: 200,
+    fat: 10,
     meal: "breakfast",
   },
 ];
