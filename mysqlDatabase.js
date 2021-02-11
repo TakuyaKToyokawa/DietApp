@@ -3,8 +3,8 @@ const mysql = require("mysql");
 var connection = mysql.createPool({
   connectionLimit: 10,
   host: "us-cdbr-east-03.cleardb.com",
-  user: "b16577e562ce88",
-  password: "a734d6b3",
+  user: "b09f56279d0840",
+  password: "fcf3b502",
   database: "heroku_61a0606002944cd",
   port: 3306
 });
