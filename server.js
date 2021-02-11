@@ -93,6 +93,6 @@ app.delete("/api/meals/:id", (req, res) => {
 //LISTEN
 var  PORT = process.env.PORT || 3000;
 
-app.listen(PORT, process.env.URL, function() {
-console.log(`Listening on Port ${PORT} ${process.env.URL}` );
+app.listen(PORT, process.env.ROOT_URL, function() {
+console.log(`Listening on Port ${PORT} ${process.env.ROOT_URL}` );
 });

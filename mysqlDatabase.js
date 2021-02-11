@@ -1,20 +1,13 @@
 const mysql = require("mysql");
 
 var connection = mysql.createPool({
-  connectionLimit: 1000,
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USERNAME,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
+  connectionLimit: 10,
+  host: "https://diet-app-backend.herokuapp.com/",
+  user: "b16577e562ce88",
+  password: "a734d6b3",
+  database: "heroku_61a0606002944cd",
 });
 
-console.log(
-  process.env.MYSQL_HOST,
-  process.env.MYSQL_USERNAME,
-  process.env.MYSQL_PASSWORD,
-  process.env.MYSQL_DATABASE,
-  process.env.PORT
-);
 
 //Foods Database
 function allFoods(callback) {
