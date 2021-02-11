@@ -1,13 +1,30 @@
 const mysql = require("mysql");
 
-const dbDetails = {
+
+var mysql = require('mysql');
+
+var pool  = mysql.createPool({
+  connectionLimit : 10,
   host: process.env.MYSQL_HOST || "localhost",
   user: process.env.MYSQL_USERNAME || "meals_list_user",
   password: process.env.MYSQL_PASSWORD || "MyNewPass4!",
   database: process.env.MYSQL_DATABASE || "food_list",
-};
+});
 
-const connection = mysql.createConnection(dbDetails);
+pool.getConnection(function(err, connection) {
+  if (err) throw err; // not connected!
+
+  // Use the connection
+  connection.query('SELECT something FROM sometable', function (error, results, fields) {
+    // When done with the connection, release it.
+    connection.release();
+
+    // Handle error after the release.
+    if (error) throw error;
+
+    // Don't use the connection here, it has been returned to the pool.
+  });
+});
 
 //Foods Database
 function allFoods(callback) {
