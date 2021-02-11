@@ -2,10 +2,10 @@ const mysql = require("mysql");
 
 var connection  = mysql.createPool({
   connectionLimit : 10,
-  host: process.env.MYSQL_HOST || "localhost",
-  user: process.env.MYSQL_USERNAME || "meals_list_user",
-  password: process.env.MYSQL_PASSWORD || "MyNewPass4!",
-  database: process.env.MYSQL_DATABASE || "food_list",
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USERNAME,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
 });
 
 //Foods Database
