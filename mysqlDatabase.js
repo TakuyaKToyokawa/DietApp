@@ -2,12 +2,12 @@ const mysql = require("mysql");
 
 const dbDetails = {
   connectionLimit: 10,
-  port: "4200",
   host: process.env.MYSQL_HOST || "localhost",
   user: process.env.MYSQL_USERNAME || "meals_list_user",
   password: process.env.MYSQL_PASSWORD || "MyNewPass4!",
   database: process.env.MYSQL_DATABASE || "food_list",
 };
+
 const connection = mysql.createConnection(dbDetails);
 
 //Foods Database
