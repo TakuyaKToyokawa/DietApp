@@ -15,7 +15,7 @@ function allFoods(callback) {
     FROM foods
   `;
   connection.query(query, null, (error, results, fields) => {
-
+console.log(process.env.MYSQL_HOST, process.env.MYSQL_USERNAME,  process.env.MYSQL_PASSWORD, process.env.MYSQL_DATABASE, process.env.PORT)
     callback(error, results);
   });
 }
