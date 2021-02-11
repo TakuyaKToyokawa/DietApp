@@ -92,6 +92,4 @@ app.delete("/api/meals/:id", (req, res) => {
 // });
 
 //LISTEN
-app.listen(8080, () => {
-  console.log("The server is listening on port 8080");
-});
+app.listen(process.env.PORT || 8080);
