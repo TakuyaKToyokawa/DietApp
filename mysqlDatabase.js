@@ -1,7 +1,6 @@
 const mysql = require("mysql");
 
 const dbDetails = {
-  connectionLimit: 10,
   host: process.env.MYSQL_HOST || "localhost",
   user: process.env.MYSQL_USERNAME || "meals_list_user",
   password: process.env.MYSQL_PASSWORD || "MyNewPass4!",
