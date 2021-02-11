@@ -6,7 +6,7 @@ var connection  = mysql.createPool({
   user: process.env.MYSQL_USERNAME,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
-  port: 4200,
+  port: 80,
 });
 
 //Foods Database
