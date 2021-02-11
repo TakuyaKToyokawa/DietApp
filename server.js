@@ -8,7 +8,6 @@ app.use(express.json());
 
 //Food API
 app.get("/api/foods", (req, res) => {
-  console.log("req.body:", req.body);
   database.allFoods((error, foods) => {
     if (error) {
       res.send({ error });

@@ -21,7 +21,7 @@ function allFoods(callback) {
     callback(error, results);
   });
 }
-
+mysql://b16577e562ce88:a734d6b3@us-cdbr-east-03.cleardb.com/heroku_b1b388468b5f14c?reconnect=true
 exports.allFoods = allFoods;
 
 function addFood(food, callback) {
