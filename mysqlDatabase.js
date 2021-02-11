@@ -1,12 +1,20 @@
 const mysql = require("mysql");
 
-var connection  = mysql.createPool({
-  connectionLimit : 1000,
+var connection = mysql.createPool({
+  connectionLimit: 1000,
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USERNAME,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
 });
+
+console.log(
+  process.env.MYSQL_HOST,
+  process.env.MYSQL_USERNAME,
+  process.env.MYSQL_PASSWORD,
+  process.env.MYSQL_DATABASE,
+  process.env.PORT
+);
 
 //Foods Database
 function allFoods(callback) {
@@ -15,7 +23,7 @@ function allFoods(callback) {
     FROM foods
   `;
   connection.query(query, null, (error, results, fields) => {
-console.log(process.env.MYSQL_HOST, process.env.MYSQL_USERNAME,  process.env.MYSQL_PASSWORD, process.env.MYSQL_DATABASE, process.env.PORT)
+
     callback(error, results);
   });
 }
@@ -27,8 +35,15 @@ function addFood(food, callback) {
     INSERT INTO foods (foodName, category, calories, carbs, protein, fat)
     VALUES (?, ?, ?, ?, ?, ?)
   `;
- 
-  const params = [food.category, food.foodName, food.calories, food.calories, food.carbs, food.fat];
+
+  const params = [
+    food.category,
+    food.foodName,
+    food.calories,
+    food.calories,
+    food.carbs,
+    food.fat,
+  ];
 
   connection.query(query, params, function (error, results) {
     callback(error, results.insertId);
@@ -66,7 +81,15 @@ function addMeal(meal, callback) {
     INSERT INTO meals (meal, foodName, category, calories, carbs, protein, fat)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
-  const params = [meal.meal, meal.foodName, meal.category, meal.calories, meal.calories, meal.carbs, meal.fat];
+  const params = [
+    meal.meal,
+    meal.foodName,
+    meal.category,
+    meal.calories,
+    meal.calories,
+    meal.carbs,
+    meal.fat,
+  ];
   connection.query(query, params, function (error, result, fields) {
     callback(error, result.insertId);
   });
