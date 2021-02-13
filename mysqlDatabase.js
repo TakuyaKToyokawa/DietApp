@@ -34,8 +34,8 @@ function addFood(food, callback) {
     food.category,
     food.foodName,
     food.calories,
-    food.calories,
     food.carbs,
+    food.protein,
     food.fat,
   ];
 
