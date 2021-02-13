@@ -39,7 +39,6 @@ app.post("/api/foods", (req, res) => {
       res.send({ error });
       return;
     }
-
     food.id = foodId;
     res.send({ food });
   });
