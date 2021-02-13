@@ -69,19 +69,19 @@ function allMeals(callback) {
 
 exports.allMeals = allMeals;
 
-function addMeal(mealType, callback) {
+function addMeal(meal, callback) {
   const query = `
     INSERT INTO meals (meal, category, foodName, calories, carbs, protein, fat)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
   const params = [
-    mealType.meal,
-    mealType.category,
-    mealType.foodName,
-    mealType.calories,
-    mealType.carbs,
-    mealType.protein,
-    mealType.fat,
+    meal.meal,
+    meal.category,
+    meal.foodName,
+    meal.calories,
+    meal.carbs,
+    meal.protein,
+    meal.fat,
   ];
   connection.query(query, params, function (error, result, fields) {
     callback(error, result.insertId);
