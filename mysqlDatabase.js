@@ -29,10 +29,8 @@ function addFood(food, callback) {
     INSERT INTO foods (category, foodName, calories, carbs, protein, fat)
     VALUES (?, ?, ?, ?, ?, ?)
   `;
-  console.log(`${food}`);
 
-
-  connection.query(query, params, function (error, results) {
+  connection.query(query,  function (error, results) {
     callback(error, results.insertId);
   });
 }
@@ -69,7 +67,7 @@ function addMeal(meal, callback) {
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
 
-  connection.query(query, params, function (error, result, fields) {
+  connection.query(query, function (error, result, fields) {
     callback(error, result.insertId);
   });
 }
