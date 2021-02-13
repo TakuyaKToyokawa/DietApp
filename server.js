@@ -40,7 +40,7 @@ app.get("/api/foods", (req, res) => {
 
 app.post("/api/foods", (req, res) => {
   const food = req.body;
-  console.log(req.body);
+  console.log(req, "req", req.body, " req.body", res, "res");
   database.addFood(food, (error, foodId) => {
     if (error) {
       res.send({ error });
