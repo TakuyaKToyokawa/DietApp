@@ -43,7 +43,6 @@ app.delete("/api/foods/:id", (req, res) => {
 
 //Meal API
 app.get("/api/meals", (req, res) => {
-  console.log("req.body:", req.body);
   database.allMeals((error, meals) => {
     if (error) {
       res.send({ error });
