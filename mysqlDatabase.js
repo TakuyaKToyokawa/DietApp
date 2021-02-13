@@ -26,10 +26,10 @@ exports.allFoods = allFoods;
 
 function addFood(food, callback) {
   const query = `
-    INSERT INTO foods (foodName, category, calories, carbs, protein, fat)
+    INSERT INTO foods (category, foodName, calories, carbs, protein, fat)
     VALUES (?, ?, ?, ?, ?, ?)
   `;
-
+  console.log(`${food}` );
   const params = [
     food.category,
     food.foodName,
@@ -72,16 +72,16 @@ exports.allMeals = allMeals;
 
 function addMeal(meal, callback) {
   const query = `
-    INSERT INTO meals (meal, foodName, category, calories, carbs, protein, fat)
+    INSERT INTO meals (meal, category, foodName, calories, carbs, protein, fat)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
   const params = [
     meal.meal,
-    meal.foodName,
     meal.category,
-    meal.calories,
+    meal.foodName,
     meal.calories,
     meal.carbs,
+    meal.protein,
     meal.fat,
   ];
   connection.query(query, params, function (error, result, fields) {
