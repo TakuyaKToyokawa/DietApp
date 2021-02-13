@@ -9,7 +9,6 @@ var connection = mysql.createPool({
   port: 3306
 });
 
-
 //Foods Database
 function allFoods(callback) {
   const query = `
@@ -70,19 +69,19 @@ function allMeals(callback) {
 
 exports.allMeals = allMeals;
 
-function addMeal(meal, callback) {
+function addMeal(mealType, callback) {
   const query = `
     INSERT INTO meals (meal, category, foodName, calories, carbs, protein, fat)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
   const params = [
-    meal.meal,
-    meal.category,
-    meal.foodName,
-    meal.calories,
-    meal.carbs,
-    meal.protein,
-    meal.fat,
+    mealType.meal,
+    mealType.category,
+    mealType.foodName,
+    mealType.calories,
+    mealType.carbs,
+    mealType.protein,
+    mealType.fat,
   ];
   connection.query(query, params, function (error, result, fields) {
     callback(error, result.insertId);
